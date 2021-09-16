@@ -8,12 +8,38 @@ end
 
 def max_2_sum arr
   # YOUR CODE HERE
-  if arr.length == 0
+  if arr.length() == 0
     return 0
+  end
+  if arr.length() == 1
+    return arr[0]
+  end
+  forward_sort = arr.sort()
+  reverse_sort = forward_sort.reverse()
+  reverse_sort[0]+reverse_sort[1]
+  
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  if arr.length()<=1
+    return false
+  end
+  first = 0
+  last = arr.length()-1
+  arr = arr.sort()
+  while first<last
+    sum = arr[first] + arr[last]
+    if sum==n
+      return true
+    end
+    if sum>n
+      last -= 1
+    end
+    if sum<n
+      first += 1
+    end
+  end
+  return false
 end
 
 # Part 2
@@ -32,6 +58,6 @@ end
 
 # Part 3
 
-class BookInStock
-# YOUR CODE HERE
-end
+# class BookInStock
+# # YOUR CODE HERE
+# end
