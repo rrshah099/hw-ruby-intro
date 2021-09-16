@@ -50,11 +50,23 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  s =~ "/[^AEIOU]/"
+  s =~ /^[^aeiou\W]/i
 end
 
+
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s.length() == 0
+    return false
+  end
+  if /[^01]/.match(s)
+    return false
+  end
+  norm_num = s.to_i
+  if norm_num % 4 == 0
+    return true
+  end
+  return false  
+    
 end
 
 # Part 3
